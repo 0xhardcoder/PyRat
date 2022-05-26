@@ -29,6 +29,5 @@ Commands:
         screenshot                   - Screenshot screen and saves it on remote PC with random name in current working directory
         private_ip                   - Shows private IP address of remote PC
         autorun                      - Adds software to autorun on remote PC
-        crash                        - overload RAM on remote PC
         swapmouse                    - Swaps mouse buttons on remote PC
 ```
